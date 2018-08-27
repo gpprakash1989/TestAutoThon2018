@@ -33,7 +33,7 @@ public class DriverFactory {
 		}
 	}
 
-	public static WebDriver createInstanceAndroid(String browser, String device_name, String port, String udid)
+	public static WebDriver createInstance(String browser, String device_name, String port, String udid)
 			throws MalformedURLException, InterruptedException {
 		{
 			DesiredCapabilities capabilities = DesiredCapabilities.android();

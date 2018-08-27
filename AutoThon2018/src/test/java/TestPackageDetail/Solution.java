@@ -34,7 +34,7 @@ public class Solution {
 		System.out.println(Thread.currentThread().getId());
 		String device_Name = deviceName.split("\\$")[1];
 		String port_Name = Port;
-		driver = DriverFactory.createInstanceAndroid("chrome", device_Name, port_Name, device_Name);
+		driver = DriverFactory.createInstance("chrome", device_Name, port_Name, device_Name);
 		ThreadLocalDriver.setThreadLocalDriver(driver);
 		driver = ThreadLocalDriver.getThreadLocalDriver();
 		runTest(driver, deviceName.split("\\$")[0]);
