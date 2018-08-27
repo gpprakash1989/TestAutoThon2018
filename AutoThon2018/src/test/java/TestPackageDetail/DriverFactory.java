@@ -16,18 +16,15 @@ public class DriverFactory {
 	
 	public static WebDriver createInstance(String browser) {
 		if (browser.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver",
-					"C:\\Users\\ab36194\\git\\TestAutothon\\Drivers\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\Drivers\\chromedriver.exe");
 			driver = new ChromeDriver();
 			return driver;
 		} else if (browser.equalsIgnoreCase("firefox")) {
-			System.setProperty("webdriver.gecko.driver",
-					"C:\\Users\\ab36194\\git\\TestAutothon\\Drivers\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\Drivers\\geckodriver.exe");
 			driver = new FirefoxDriver();
 			return driver;
 		} else {
-			System.setProperty("webdriver.gecko.driver",
-					"C:\\Users\\ab36194\\git\\TestAutothon\\Drivers\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\Drivers\\geckodriver.exe");
 			driver = new FirefoxDriver();
 			return driver;
 		}

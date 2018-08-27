@@ -13,8 +13,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -72,7 +70,10 @@ public class solution {
 	public synchronized void webMobileTest(String browserType, ArrayList<String> brandNames) throws MalformedURLException, InterruptedException {
 		// public void webMobileTest() {
 		ArrayList<String> description = new ArrayList<String>();
-		driver = openBrowser(browserType);
+		
+		driver = DriverFactory.createInstance(browserType);
+		ThreadLocalDriver.setThreadLocalDriver(driver);
+		driver = ThreadLocalDriver.getThreadLocalDriver();
 		driver.get("https://www.flipkart.com");
 		waitAWhile(3000);
 		getElement("/html/body/div[2]/div/div/button").sendKeys(Keys.ESCAPE);
@@ -146,7 +147,7 @@ public class solution {
 		return sendData;
 	}
 
-	private WebDriver openBrowser(String browserType) throws MalformedURLException, InterruptedException {
+/*	private WebDriver openBrowser(String browserType) throws MalformedURLException, InterruptedException {
 		if (browserType == "chrome") {
 						
 			driver = DriverFactory.createInstance("chrome");
@@ -161,7 +162,7 @@ public class solution {
 			System.out.println("Add mobile driver");
 		}
 		return driver;
-	}
+	}*/
 
 	private WebElement getElement(String locator) {
 		WebElement element = driver.findElement(By.xpath(locator));
