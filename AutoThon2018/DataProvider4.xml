@@ -1,0 +1,10 @@
+<suite name="Suite1" parallel="methods" thread-count="1" data-provider-thread-count="1">
+	<test name="test1">
+		<classes>
+			<class name="TestPackage.JsonRead" />
+			<methods>
+				<exclude name="Testing1" />
+			</methods>
+		</classes>
+		</test>
+</suite>
